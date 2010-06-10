@@ -3,13 +3,6 @@
 {% block title %}Upload file to Blobstore{% endblock %}
 
 {% block content %}
-<h1>Files</h1>
-<ul>
-  {% for file in files %}
-    <li><a href="/download/{{ file.pk }}">{{ file.filename }}</a>
-        (<a href="/delete/{{ file.pk }}">delete</a>)</li>
-  {% endfor %}
-</ul>
 <h1>Upload</h1>
 <form action="{{ upload_url }}" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
@@ -17,4 +10,12 @@
   <table>{{ form }}</table>
   <input type="submit" value="Upload" />
 </form>
+
+<h1>Files</h1>
+<ul>
+  {% for file in files %}
+    <li><a href="/download/{{ file.pk }}">{{ file.filename }}</a>
+        (<a href="/delete/{{ file.pk }}">delete</a>)</li>
+  {% endfor %}
+</ul>
 {% endblock %}
