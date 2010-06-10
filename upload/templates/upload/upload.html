@@ -6,7 +6,7 @@
 <h1>Files</h1>
 <ul>
   {% for file in files %}
-    <li><a href="/download/{{ file.pk }}">{{ file.file.name }}</a>
+    <li><a href="/download/{{ file.pk }}">{{ file.filename }}</a>
         (<a href="/delete/{{ file.pk }}">delete</a>)</li>
   {% endfor %}
 </ul>
