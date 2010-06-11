@@ -1,6 +1,6 @@
 from django import forms
-from upload.models import StorageModel
+from upload.models import UploadModel
 
-class StorageForm(forms.ModelForm):
+class UploadForm(forms.ModelForm):
     class Meta:
-        model = StorageModel
+        model = UploadModel

@@ -16,7 +16,10 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'upload',
+    'filetransfers',
 )
+
+USE_I18N = False
 
 if has_djangoappengine:
     INSTALLED_APPS = ('djangoappengine',) + INSTALLED_APPS
