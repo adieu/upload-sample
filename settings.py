@@ -10,6 +10,29 @@ import os
 
 SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'
 
+# Uncomment the following if you want to use MongoDB
+# -----------------
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django_mongodb_engine.mongodb',
+#        'NAME': 'test',
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': 'localhost',
+#        'PORT': 27017,
+#        'SUPPORTS_TRANSACTIONS': False,
+#    }
+#}
+#
+#DEFAULT_FILE_STORAGE = 'storages.backends.mongodb.GridFSStorage'
+#GRIDFS_DATABASE = 'default'
+# -----------------
+
+# Depending on your configuration (different file server, nginx-gridfs, etc.)
+# you might want to use the redirect backend for downloads
+#FILETRANSFERS_DOWNLOAD_BACKEND = 'filetransfers.backends.redirect.serve_file'
+#FILETRANSFERS_BASE_REDIRECT_URL = '/gridfs/'
+
 INSTALLED_APPS = (
     'djangotoolbox',
 #    'django.contrib.auth',
