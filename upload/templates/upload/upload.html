@@ -13,12 +13,12 @@
 
 <h1>Files</h1>
 <ul>
-  {% for file in files %}
+  {% for upload in uploads %}
     <li>
-      {% url upload.views.download_handler pk=file.pk as download_url %}
-      <a href="{% firstof file.file|public_download_url download_url %}">{{ file.filename }}</a>
-      ({{ file.file.size|filesizeformat }})
-      <form action="{% url upload.views.delete_handler pk=file.pk %}" style="display:inline">
+      {% url upload.views.download_handler pk=upload.pk as download_url %}
+      <a href="{% firstof upload.file|public_download_url download_url %}">{{ upload.filename }}</a>
+      ({{ upload.file.size|filesizeformat }})
+      <form action="{% url upload.views.delete_handler pk=upload.pk %}" style="display:inline">
         <input type="submit" value="Delete" />
       </form>
     </li>

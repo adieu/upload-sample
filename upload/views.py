@@ -19,7 +19,7 @@ def upload_handler(request):
     form = UploadForm()
     return direct_to_template(request, 'upload/upload.html',
         {'form': form, 'upload_url': upload_url, 'upload_data': upload_data,
-         'files': UploadModel.objects.all()})
+         'uploads': UploadModel.objects.all()})
 
 def download_handler(request, pk):
     upload = get_object_or_404(UploadModel, pk=pk)
