@@ -8,8 +8,6 @@ except ImportError:
 
 import os
 
-SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'
-
 # Uncomment the following if you want to use MongoDB
 # -----------------
 #DATABASES = {
@@ -28,10 +26,9 @@ SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'
 #GRIDFS_DATABASE = 'default'
 # -----------------
 
-# Depending on your configuration (different file server, nginx-gridfs, etc.)
-# you might want to use the redirect backend for downloads
-#FILETRANSFERS_DOWNLOAD_BACKEND = 'filetransfers.backends.redirect.serve_file'
-#FILETRANSFERS_BASE_REDIRECT_URL = '/gridfs/'
+# Use this if you have a base URL for public downloads
+#FILETRANSFERS_PUBLIC_DOWNLOAD_URL_BACKEND = 'filetransfers.backends.public_url.public_download_url'
+#PUBLIC_DOWNLOADS_URL_BASE = '/gridfs/'
 
 INSTALLED_APPS = (
     'djangotoolbox',
@@ -52,3 +49,5 @@ MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media')
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 ROOT_URLCONF = 'urls'
+
+SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'

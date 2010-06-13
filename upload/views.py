@@ -9,12 +9,13 @@ from upload.models import UploadModel
 from filetransfers.api import prepare_upload, serve_file
 
 def upload_handler(request):
+    view_url = reverse('upload.views.upload_handler')
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
         form.save()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect(view_url)
 
-    upload_url, upload_data = prepare_upload(request, '/')
+    upload_url, upload_data = prepare_upload(request, view_url)
     form = UploadForm()
     return direct_to_template(request, 'upload/upload.html',
         {'form': form, 'upload_url': upload_url, 'upload_data': upload_data,
@@ -26,4 +27,4 @@ def download_handler(request, pk):
 
 def delete_handler(request, pk):
     get_object_or_404(UploadModel, pk=pk).delete()
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect(reverse('upload.views.upload_handler'))
