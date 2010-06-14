@@ -18,7 +18,8 @@
       {% url upload.views.download_handler pk=upload.pk as fallback_url %}
       <a href="{% firstof upload.file|public_download_url fallback_url %}">{{ upload.filename }}</a>
       ({{ upload.file.size|filesizeformat }})
-      <form action="{% url upload.views.delete_handler pk=upload.pk %}" style="display:inline">
+      <form method="post" action="{% url upload.views.delete_handler pk=upload.pk %}" style="display:inline">
+        {% csrf_token %}
         <input type="submit" value="Delete" />
       </form>
     </li>

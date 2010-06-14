@@ -27,8 +27,8 @@ import os
 # -----------------
 
 # Use this if you have a base URL for public downloads
-#FILETRANSFERS_PUBLIC_DOWNLOAD_URL_BACKEND = 'filetransfers.backends.public_url.public_download_url'
-#PUBLIC_DOWNLOADS_URL_BASE = '/gridfs/'
+#PUBLIC_DOWNLOAD_URL_BACKEND = 'filetransfers.backends.base_url.public_download_url'
+#PUBLIC_DOWNLOADS_BASE_URL = '/gridfs/'
 
 INSTALLED_APPS = (
     'djangotoolbox',
