@@ -51,3 +51,12 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 ROOT_URLCONF = 'urls'
 
 SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'
+
+# Activate django-dbindexer if available
+try:
+    import dbindexer
+    DATABASES['native'] = DATABASES['default']
+    DATABASES['default'] = {'ENGINE': 'dbindexer', 'TARGET': 'native'}
+    INSTALLED_APPS += ('dbindexer',)
+except ImportError:
+    pass
