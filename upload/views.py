@@ -12,7 +12,10 @@ def upload_handler(request):
     view_url = reverse('upload.views.upload_handler')
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
-        form.save()
+        import logging
+        logging.info(request.POST)
+        if form.is_valid():
+            form.save()
         return HttpResponseRedirect(view_url)
 
     upload_url, upload_data = prepare_upload(request, view_url)
