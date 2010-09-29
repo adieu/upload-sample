@@ -12,8 +12,6 @@ def upload_handler(request):
     view_url = reverse('upload.views.upload_handler')
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
-        import logging
-        logging.info(request.POST)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect(view_url)
