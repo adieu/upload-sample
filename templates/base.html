@@ -25,7 +25,7 @@
     <div class="columns">
       <div id="content" class="column">
         {% block content-header %}
-          {% if error %}<div class="error">{{ error }}</div>{% endif %}
+          {% if error %}<div class="error" style="margin-top:1em; color:red;">{{ error }}</div>{% endif %}
           {% if info %}<div class="info">{{ info }}</div>{% endif %}
           {% if messages %}
             {% for message in messages %}
