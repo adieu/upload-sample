@@ -31,10 +31,11 @@ import os
 #PUBLIC_DOWNLOADS_BASE_URL = '/gridfs/'
 
 INSTALLED_APPS = (
-    'djangotoolbox',
-#    'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
+    'django.contrib.auth',
     'django.contrib.sessions',
+    'djangotoolbox',
     'upload',
     'filetransfers',
 )
