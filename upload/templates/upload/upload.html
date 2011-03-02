@@ -16,7 +16,7 @@
   {% for upload in uploads %}
     <li>
       {% url upload.views.download_handler pk=upload.pk as fallback_url %}
-      <a href="{% firstof upload.file|public_download_url fallback_url %}"><img src="{% firstof upload.file|public_download_url fallback_url %}" />{% firstof upload.title 'unnamed' %} - {{ upload.filename }}</a>
+      <a href="{% firstof upload.file|public_download_url fallback_url %}"><img src="{% firstof upload.image_thumbnail_url %}" />{% firstof upload.title 'unnamed' %} - {{ upload.filename }}</a>
       ({{ upload.file.size|filesizeformat }})
       <form method="post" action="{% url upload.views.delete_handler pk=upload.pk %}" style="display:inline">
         {% csrf_token %}
