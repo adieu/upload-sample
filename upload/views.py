@@ -36,5 +36,7 @@ def download_handler(request, pk):
 
 def delete_handler(request, pk):
     if request.method == 'POST':
-        get_object_or_404(UploadModel, pk=pk).delete()
+        upload = get_object_or_404(UploadModel, pk=pk)
+        upload.file.delete()
+        upload.delete()
     return HttpResponseRedirect(reverse('upload.views.upload_handler'))
